@@ -1,0 +1,42 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+//判断系统版本
+#define iOS(version) (([[[UIDevice currentDevice] systemVersion] intValue] >= version)? 1 : 0 )
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import "ASIFormDataRequest.h"
+    #import "ASIHTTPRequest.h"
+    #import "Tool.h"
+    #import "SoapXmlParseHelper.h"
+    #import "MyKeyChainHelper.h"
+#endif
+
+
+#define defaultWebServiceUrl @"http://service.rmojul.com/RAJSupplyWebService.asmx/"
+#define rootimageurl   @"http://service.rmojul.com/Image/"
+#define rootsmallimageurl   @"http://service.rmojul.com/Image/Small/"
+
+#define SCREENWIDTH [UIScreen mainScreen].bounds.size.width
+#define SCREENWIHEIGHT [UIScreen mainScreen].bounds.size.height
+#define BIG_IMG_WIDTH  SCREENWIDTH
+#define BIG_IMG_HEIGHT SCREENWIHEIGHT-113
+
+
+
+#ifndef __OPTIMIZE__
+#define NSLog(...) NSLog(__VA_ARGS__)
+#else
+#define NSLog(...) {}
+#endif
